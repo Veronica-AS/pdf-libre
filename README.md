@@ -50,7 +50,6 @@ Tus archivos nunca salen de tu dispositivo: no hay servidor, ni base de datos, n
 Requisitos: Node.js 20 o superior.
 
 ```bash
-cd herramientas-pdf
 npm install
 npm run dev          # http://localhost:5173
 ```
@@ -95,13 +94,9 @@ Las pruebas automáticas no sustituyen a un iPhone real. Verifica:
 Es un sitio 100 % estático: `npm run build` genera la carpeta `dist/`.
 Define **`SITE_URL`** con la URL pública (sin barra final) para que el sitemap y las URL canónicas sean correctas.
 
-- **Netlify**: nuevo sitio desde el repositorio, *Base directory* `herramientas-pdf`, variable `SITE_URL`. `netlify.toml` ya está configurado.
-- **Vercel**: nuevo proyecto, *Root Directory* `herramientas-pdf`, variable `SITE_URL`. `vercel.json` ya está configurado.
-- **GitHub Pages** (en una subcarpeta, p. ej. `https://usuario.github.io/pdf-libre/`):
-  ```bash
-  BASE_PATH=/pdf-libre/ SITE_URL=https://usuario.github.io/pdf-libre npm run build
-  ```
-  y publica `dist/` (se genera `404.html` para que funcionen las rutas de la app).
+- **Netlify**: nuevo sitio desde el repositorio, variable `SITE_URL`. `netlify.toml` ya está configurado.
+- **Vercel**: nuevo proyecto, variable `SITE_URL`. `vercel.json` ya está configurado.
+- **GitHub Pages** (configurado): `.github/workflows/publicar.yml` publica en `https://usuario.github.io/pdf-libre/` cada vez que cambia `main`. Solo hay que elegir *Settings → Pages → Source: GitHub Actions*. Con dominio propio, define la variable de repositorio `SITE_URL` (p. ej. `https://pdflibre.app`) y el sitio se publica en la raíz.
 
 ## Estructura
 
